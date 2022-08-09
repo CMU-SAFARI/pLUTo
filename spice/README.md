@@ -3,8 +3,10 @@
 ## Steps to Reproduce
 
 1. [Download LTSpice.](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html)
-2. Open and run the Monte Carlo simulation for each of the .asc files in LTSpice.
-3. Plot the voltage value of the `bitline` wire by clicking on it in the schematic.
+2. Open and run the Monte Carlo simulation for each of the .asc files in LTSpice by clicking ![the run icon](media/run_button.png) in the LTSpice toolbar.
+3. Plot the voltage value of the `bitline` wire by clicking on it in the schematic, as illustrated in the following screenshot:
+
+![Demonstration of the process of probing the bitline voltage.](media/probe_bitline.png)
 
 ## Expected Behaviour
 
