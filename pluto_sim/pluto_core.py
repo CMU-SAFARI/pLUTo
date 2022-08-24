@@ -116,5 +116,5 @@ class LUT:
 
         self.data_hex = np.tile(self.data_hex, self.repmat_factor).T
 
-        print(self.data_hex)
-        print(self.data_hex.shape)
+        # print(self.data_hex)
+        # print(self.data_hex.shape)

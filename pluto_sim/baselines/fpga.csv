@@ -1,0 +1,2 @@
+Metric,Add4,Add8,Mul8,Mul16,CRC8,CRC16,CRC32,BitCount,BitCount_short,ImgBin,GeoMean
+Total Time (s),4.59E-03,2.29E-03,2.29E-03,1.15E-03,1.35E+00,6.79E-01,3.43E-01,1.64E-03,3.28E-03,1.17E-02,1.49E-02

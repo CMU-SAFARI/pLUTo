@@ -31,9 +31,7 @@ VecAdd4_KSA_InstQueue.extend(
     ]
 )
 
-VecAdd4_LUT_InstQueue = [
-    Instruction(Operations.pLUTo, get_size_inputs(Workloads.VecAdd8), LUT_ix=0)
-]
+VecAdd4_LUT_InstQueue = [Instruction(Operations.pLUTo, get_size_inputs(Workloads.VecAdd8), LUT_ix=0)]
 
 VecAdd8_InstQueue = [
     Instruction(Operations.XOR, get_size_inputs(Workloads.VecAdd8)),
@@ -198,21 +196,13 @@ BitWiseOps_InstQueue = [
     Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitWiseOps), LUT_ix=0),
 ]
 
-BitCount_InstQueue = [
-    Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitCount), LUT_ix=0)
-]
+BitCount_InstQueue = [Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitCount), LUT_ix=0)]
 
-BitCount_short_InstQueue = [
-    Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitCount_short), LUT_ix=0)
-]
+BitCount_short_InstQueue = [Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitCount_short), LUT_ix=0)]
 
-ImgBin_InstQueue = [
-    Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitWiseOps), LUT_ix=0)
-]
+ImgBin_InstQueue = [Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitWiseOps), LUT_ix=0)]
 
-ColorGrade_InstQueue = [
-    Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitWiseOps), LUT_ix=0)
-]
+ColorGrade_InstQueue = [Instruction(Operations.pLUTo, get_size_inputs(Workloads.BitWiseOps), LUT_ix=0)]
 
 LeNet4_InstQueue = [
     # Conv + Tanh

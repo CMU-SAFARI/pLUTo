@@ -15,9 +15,7 @@ class Memory:
     n_banks = 16
 
     def num_subarrays(self):
-        return int(
-            self.total_memory_bytes / self.row_size_bytes / self.rows_per_subarray
-        )
+        return int(self.total_memory_bytes / self.row_size_bytes / self.rows_per_subarray)
 
     def subarray_memory_bytes(self):
         return int(self.total_memory_bytes / self.num_subarrays())
@@ -77,10 +75,8 @@ class Memory:
             Operations.SHIFT: 1 * self.AAPLatencies()[Operations.AAP],  # ns
             Operations.AND: 4 * self.AAPLatencies()[Operations.AAP],  # ns
             Operations.OR: 4 * self.AAPLatencies()[Operations.AAP],  # ns
-            Operations.XOR: 5 * self.AAPLatencies()[Operations.AAP]
-            + 2 * self.AAPLatencies()[Operations.AP],  # ns
-            Operations.XNOR: 6 * self.AAPLatencies()[Operations.AAP]
-            + 2 * self.AAPLatencies()[Operations.AP],  # ns
+            Operations.XOR: 5 * self.AAPLatencies()[Operations.AAP] + 2 * self.AAPLatencies()[Operations.AP],  # ns
+            Operations.XNOR: 6 * self.AAPLatencies()[Operations.AAP] + 2 * self.AAPLatencies()[Operations.AP],  # ns
         }
 
     def DerivedLatenciesAsAP(self):
@@ -89,26 +85,20 @@ class Memory:
             Operations.SHIFT: 1 * self.AAPLatenciesAsAP()[Operations.AAP],
             Operations.AND: 4 * self.AAPLatenciesAsAP()[Operations.AAP],
             Operations.OR: 4 * self.AAPLatenciesAsAP()[Operations.AAP],
-            Operations.XOR: 5 * self.AAPLatenciesAsAP()[Operations.AAP]
-            + 2 * self.AAPLatenciesAsAP()[Operations.AP],
-            Operations.XNOR: 6 * self.AAPLatenciesAsAP()[Operations.AAP]
-            + 2 * self.AAPLatenciesAsAP()[Operations.AP],
+            Operations.XOR: 5 * self.AAPLatenciesAsAP()[Operations.AAP] + 2 * self.AAPLatenciesAsAP()[Operations.AP],
+            Operations.XNOR: 6 * self.AAPLatenciesAsAP()[Operations.AAP] + 2 * self.AAPLatenciesAsAP()[Operations.AP],
         }
 
     def getAPqueue(self, inst, num_rows, parallelism):
         if inst.op == Operations.pLUTo:
-            return self.AAPLatenciesAsAP()[Operations.AP] * int(
-                inst.LUT.num_entries * num_rows / parallelism
-            )
+            return self.AAPLatenciesAsAP()[Operations.AP] * int(inst.LUT.num_entries * num_rows / parallelism)
         elif inst.op in [
             Operations.ACT,
             Operations.READ,
             Operations.WRITE,
             Operations.PRE,
         ]:
-            return self.FundamentalLatenciesAsAP()[inst.op] * int(
-                num_rows / parallelism
-            )
+            return self.FundamentalLatenciesAsAP()[inst.op] * int(num_rows / parallelism)
         elif inst.op in [Operations.AP, Operations.AAP]:
             return self.AAPLatenciesAsAP()[inst.op] * int(num_rows / parallelism)
         elif inst.op in [
@@ -163,6 +153,8 @@ class DDR4(Memory):
     row_size_bytes = 8192
     rows_per_subarray = 512
 
+    parallelism = [1, 16, 256, 2048]
+
     cpu_tdp = 105 / 12
     cpu_clock = 2.3e9
 
@@ -198,6 +190,8 @@ class HMC(Memory):
     total_memory_bytes = (2**3) * (2**30)
     row_size_bytes = 8192 / n_vaults  # per vault
     rows_per_subarray = 512
+
+    parallelism = [512, 8192]
 
     cpu_tdp = 10
     cpu_clock = 1.25e9

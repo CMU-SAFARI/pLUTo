@@ -3,7 +3,7 @@
 ## Steps to Reproduce
 
 1. Ensure you have Python 3.x available on your system.
-2. Install the required dependencies (only NumPy) using `pip install -r requirements.txt`.
+2. Install the required dependencies (NumPy and pandas) using `pip install -r requirements.txt`.
 3. `cd` into the `pluto_sim` directory.
 4. Run the simulator with `python pluto_sim.py`
 

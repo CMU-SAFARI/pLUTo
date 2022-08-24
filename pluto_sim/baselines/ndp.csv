@@ -1,0 +1,2 @@
+Metric,CRC-8,CRC-16,CRC-32,Salsa20,VMPC,ImgBin,ColorGrade,Geomean
+Total Time (s),5.95E-03,5.95E-03,7.75E-03,1.37E-01,1.44E-02,3.35E-01,3.09E-01,3.07E-02

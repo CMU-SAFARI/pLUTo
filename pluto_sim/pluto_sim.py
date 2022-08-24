@@ -1,6 +1,5 @@
 import math
 import os
-import random
 
 import numpy as np
 
@@ -88,9 +87,7 @@ class pLUTo:
 
         if tXAW != 0 and parallelism > activation_limit:
             # Queue to succession of ns
-            queue = [tACT * q for q in queue] + [
-                tXAW * (q // activation_limit) for q in queue
-            ]
+            queue = [tACT * q for q in queue] + [tXAW * (q // activation_limit) for q in queue]
         else:
             # Queue to succession of ns
             queue = [tACT * q for q in queue]
@@ -136,21 +133,12 @@ class pLUTo:
 
             if i.op == Operations.pLUTo:
                 if self.config == pluto_configs[0]:
-                    energy_nJ = (
-                        2
-                        * i.LUT.num_entries
-                        * self.memory.Energy[Operations.AP]
-                        * num_rows
-                    )
+                    energy_nJ = 2 * i.LUT.num_entries * self.memory.Energy[Operations.AP] * num_rows
                 elif self.config == pluto_configs[1]:
-                    energy_nJ = (
-                        i.LUT.num_entries * self.memory.Energy[Operations.AP] * num_rows
-                    )
+                    energy_nJ = i.LUT.num_entries * self.memory.Energy[Operations.AP] * num_rows
                 elif self.config == pluto_configs[2]:
                     energy_nJ = (
-                        i.LUT.num_entries
-                        * self.memory.Energy[Operations.ACT]
-                        * num_rows
+                        i.LUT.num_entries * self.memory.Energy[Operations.ACT] * num_rows
                         + self.memory.Energy[Operations.PRE] * num_rows
                     )
                 else:
@@ -167,8 +155,6 @@ class pLUTo:
 
 
 def main():
-    random.seed(42)
-
     directory = "pysim"
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -178,18 +164,14 @@ def main():
 
         filename = "".join(["pysim_", pluto_config, ".csv"])
         with open(os.path.join(directory, filename), "w") as f:
-            f.write(
-                "workload, memory, parallelism, tXAW, energy (nJ), execution time (ns)\n"
-            )
+            f.write("workload, memory, parallelism, tXAW, energy (nJ), execution time (ns)\n")
 
             for m in mem_configs:
                 print("Evaluating memory ", m, "...")
                 for w in Workloads:
                     print("Running workload ", w.name, "...")
-                    para_test = (
-                        [1, 16, 256, 2048] if isinstance(m, DDR4) else [512, 8192]
-                    )
-                    for p in para_test:
+                    parallelism = m.parallelism
+                    for p in parallelism:
                         print("Testing parallelism ", p, "...")
                         for tXAW in np.linspace(0, 13.328, num=3):
                             print("Testing tXAW ", tXAW, "...")
