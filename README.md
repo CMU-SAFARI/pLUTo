@@ -20,9 +20,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#what-is-pluto">What is pLUTo?</a></li>
+    <li><a href="#citation">Citation</a></li>
     <li><a href="#repository-structure">Repository Structure</a></li>
     <li><a href="#execution-instructions">Execution Instructions</a></li>
-    <li><a href="#citation">Citation</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
