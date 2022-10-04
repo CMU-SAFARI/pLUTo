@@ -34,7 +34,26 @@
 **pLUTo is a Processing-using-Memory architecture that enables the execution of complex operations in-memory.**
 To achieve this, the key idea of pLUTo is to replace complex operations with low-cost, massively parallel table lookups that produce the same result.
 
-The _pLUTo LUT Query_ operation is at the core of pLUTo's functionality: this operation enables every element in an input memory row to be used to query a LUT which main contain up to as many entries as the number of rows in a DRAM subarray.
+The _pLUTo LUT Query_ operation is at the core of pLUTo's functionality: this operation enables every element in an input memory row to be used to query a LUT that may contain up to as many entries as the number of rows in a DRAM subarray.
+
+
+## Citation
+
+Please cite our full MICRO 2022 paper if you find this repository useful.
+
+> _João Dinis Ferreira, Gabriel Falcao, Juan Gómez-Luna, Mohammed Alser, Lois Orosa, Mohammad Sadrosadati, Jeremie S. Kim, Geraldo F. Oliveira, Taha Shahroodi, Anant Nori, and Onur Mutlu. ["pLUTo: Enabling Massively Parallel Computation in DRAM via Lookup Tables".](https://arxiv.org/abs/2104.07699) In Proceedings of the 55th Annual IEEE/ACM International Symposium on Microarchitecture (MICRO), 2022. https://doi.org/10.1109/MICRO56248.2022.00067._
+
+You can also use the following BibTeX entry for this purpose:
+
+```bibtex
+@inproceedings{ferreira2022pluto,
+  author = {Ferreira, João Dinis and Falcao, Gabriel and Gómez-Luna, Juan and Alser, Mohammed and Orosa, Lois and Sadrosadati, Mohammad and Kim, Jeremie S. and Oliveira, Geraldo F. and Shahroodi, Taha and Nori, Anant and Mutlu, Onur},
+  title = {{pLUTo: Enabling Massively Parallel Computation in DRAM via Lookup Tables}},
+  doi = {10.1109/MICRO56248.2022.00067},
+  booktitle = {Proceedings of the 55th Annual IEEE/ACM International Symposium on Microarchitecture (MICRO)},
+  year = {2022}
+}
+```
 
 ## Repository Structure
 
@@ -79,24 +98,6 @@ The following is a high-level overview of the structure of this repository. We h
 ## Execution Instructions
 
 For step-by-step instructions on how to reproduce our results, please see [the README in the `spice` folder](spice/README.md) and [the README in the `pluto_sim` folder](pluto_sim/README.md).
-
-## Citation
-
-Please cite pLUTo as follows:
-
-> _João Dinis Ferreira, Gabriel Falcao, Juan Gómez-Luna, Mohammed Alser, Lois Orosa, Mohammad Sadrosadati, Jeremie S. Kim, Geraldo F. Oliveira, Taha Shahroodi, Anant Nori, and Onur Mutlu. ["pLUTo: Enabling Massively Parallel Computation in DRAM via Lookup Tables".](https://arxiv.org/abs/2104.07699) In Proceedings of the 55th Annual IEEE/ACM International Symposium on Microarchitecture (MICRO), 2022. https://doi.org/10.1109/MICRO56248.2022.00067._
-
-You can also use the following BibTeX entry for this purpose:
-
-```bibtex
-@inproceedings{ferreira2022pluto,
-  author = {Ferreira, João Dinis and Falcao, Gabriel and Gómez-Luna, Juan and Alser, Mohammed and Orosa, Lois and Sadrosadati, Mohammad and Kim, Jeremie S. and Oliveira, Geraldo F. and Shahroodi, Taha and Nori, Anant and Mutlu, Onur},
-  title = {{pLUTo: Enabling Massively Parallel Computation in DRAM via Lookup Tables}},
-  doi = {10.1109/MICRO56248.2022.00067},
-  booktitle = {Proceedings of the 55th Annual IEEE/ACM International Symposium on Microarchitecture (MICRO)},
-  year = {2022}
-}
-```
 
 ## License
 
