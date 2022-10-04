@@ -8,7 +8,7 @@
 
 ![Demonstration of the process of probing the bitline voltage.](media/probe_bitline.png)
 
-## Expected Behaviour
+## Expected Behavior
 
 You should observe behaviour analogous to that of the reference files provided in the folder `out`.
 
